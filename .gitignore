@@ -1,0 +1,32 @@
+# Course-provided or local source artifacts
+*.gns3project
+*.zip
+*.docx
+*.doc
+
+# Packet captures and raw exports
+*.pcap
+*.pcapng
+*.cap
+*.etl
+
+# Local GNS3 state
+.gns3/
+project-files/
+captures/raw/
+
+# Evidence that has not been sanitized
+evidence/raw/
+evidence/unredacted/
+
+# Local operating-system and editor files
+.DS_Store
+Thumbs.db
+Desktop.ini
+.vscode/
+.idea/
+
+# Temporary files
+*.tmp
+*.bak
+~$*
