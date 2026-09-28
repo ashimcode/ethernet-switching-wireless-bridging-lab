@@ -1,6 +1,6 @@
 # LinkedIn project brief — draft only
 
-This is a working draft. Do not publish it as a completed project until the live Guest-VLAN correction, before/after evidence, and packet-capture gate are complete.
+This is a working draft. Publish only after the repository link and final visual evidence have been reviewed.
 
 ## Flagship launch draft
 
@@ -8,13 +8,13 @@ I built a GNS3 access-layer lab to understand how VLAN segmentation and wireless
 
 The topology separates Staff and Guest endpoints into VLAN 10 and VLAN 20, carries both networks across an 802.1Q trunk, and uses Wireshark and endpoint tests to examine ARP and ICMP behavior.
 
-The most valuable result was not the first successful ping. It was finding a configuration mismatch: the simulated Guest wireless port was assigned to VLAN 10 even though the endpoint belonged to the VLAN 20 subnet. That made the failure a Layer 2 membership problem, not a missing-gateway problem.
+The most valuable result was not the first successful ping. It was finding a configuration mismatch: the simulated Guest wireless port was assigned to VLAN 10 even though the endpoint belonged to the VLAN 20 subnet. That made the failure a Layer 2 membership problem, not a missing-gateway problem. After correcting the bridge port in a disposable copy, both Guest directions returned five ICMP replies and the switch learned the endpoints in VLAN 20. Staff VLAN 10 communication remained healthy, while cross-VLAN traffic stayed blocked because no Layer 3 gateway is present.
 
-I documented the root cause, the minimal correction, the evidence required for a safe retest, and the production hardening controls I would add next.
+I documented the root cause, the minimal correction, the runtime validation, and the production hardening controls I would add next.
 
-The project is not being labeled complete until the corrected path is reproduced and the before/after evidence is sanitized.
+The repository records the runtime result in a sanitized validation note; a packet capture or before/after configuration image can be added as a follow-up evidence layer.
 
-Repository: [add the stable GitHub link after the completion gate passes]
+Repository: https://github.com/ashimcode/ethernet-switching-wireless-bridging-lab
 
 ## Post checklist
 

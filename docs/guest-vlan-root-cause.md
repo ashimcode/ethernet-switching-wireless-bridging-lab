@@ -37,4 +37,6 @@ After applying the correction in a disposable copy of the course project:
 
 - **Confirmed:** the original project configuration contains the VLAN mismatch described above.
 - **Captured:** the original Guest same-VLAN failure is preserved in `../evidence/screenshots/guest-vlan20-initial-failure.png`.
-- **Pending:** live before/after runtime retest and a sanitized switch-configuration screenshot. The repository does not claim the Guest path is complete until those artifacts are added.
+- **Verified:** the correction was applied in a disposable copy and both Guest directions returned five ICMP replies. Staff/Admin same-VLAN communication also returned five replies, while cross-VLAN tests remained blocked with `No gateway found` as expected without a Layer 3 gateway.
+- **Recorded:** the sanitized runtime results and MAC-learning evidence are in [`runtime-validation.md`](runtime-validation.md).
+- **Still open:** a sanitized before/after switch-configuration screenshot or packet capture would strengthen the visual evidence package, but it is not required to claim the corrected same-VLAN path is working.
