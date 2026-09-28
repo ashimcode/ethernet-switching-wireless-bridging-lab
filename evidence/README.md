@@ -31,4 +31,6 @@ Do not publish credentials, personal information, unrelated host details, restri
 - `screenshots/guest-vlan20-initial-failure.png` — initial Guest VLAN test failure before troubleshooting
 - the three `*-addressing.png` files — VPCS addressing and gateway state
 
+The Guest failure has a configuration-based root-cause note in [`../docs/guest-vlan-root-cause.md`](../docs/guest-vlan-root-cause.md). A live before/after screenshot is still required before the correction is presented as runtime-verified.
+
 The screenshots are sanitized copies. Installer-error views, local filesystem paths, source-document pages, and unrelated desktop content were excluded.

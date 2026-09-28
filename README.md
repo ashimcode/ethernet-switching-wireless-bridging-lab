@@ -104,9 +104,13 @@ All published images were reviewed for personal names, email addresses, local fi
     <td colspan="2"><img src="evidence/screenshots/guest-vlan20-initial-failure.png" alt="Initial Guest VLAN same-segment test showing an observed failure before troubleshooting" width="100%"></td>
   </tr>
   <tr>
-    <td colspan="2"><b>Investigation state</b><br>The initial Guest VLAN same-segment failure is preserved as troubleshooting evidence. It is not presented as proof that the Guest path is complete; the root-cause analysis and retest remain open.</td>
+    <td colspan="2"><b>Investigation state</b><br>The initial Guest VLAN same-segment failure is preserved as troubleshooting evidence. Inspection of the supplied project identifies the Guest wireless bridge access port as misclassified (VLAN 10 instead of VLAN 20); the runtime correction and before/after capture remain open.</td>
   </tr>
 </table>
+
+### Current Guest-VLAN finding
+
+The supplied project places `Guest-Wireless-Laptop` at `192.168.20.20/24`, but its connected `Wireless-AP-Bridge Ethernet1` port is configured as access VLAN 10. The wired Guest endpoint is in VLAN 20, so the two Guest endpoints are not actually in the same Layer 2 broadcast domain. The correction target is documented in [`docs/guest-vlan-root-cause.md`](docs/guest-vlan-root-cause.md). This is a configuration-derived finding; the repository will not claim a successful retest until the corrected project is run and sanitized before/after evidence is added.
 
 ### Packet analysis
 
@@ -183,7 +187,7 @@ ARP spoofing or poisoning attempts rely on the ability to influence address-reso
 | Test | Expected result | Evidence |
 |---|---|---|
 | Staff host to Staff host | Success within VLAN 10 | VPCS output and ICMP capture |
-| Guest host to Guest host | Success within VLAN 20 | VPCS output and ICMP capture |
+| Guest host to Guest host | Success within VLAN 20 after correcting the wireless bridge access port | Original failure plus configuration root-cause note; live retest pending |
 | Staff host to Guest host | Failure without Layer 3 routing | Ping result, ARP observation, topology note |
 | Staff ARP request | Visible only in VLAN 10 | Wireshark `arp` capture |
 | Guest ARP request | Visible only in VLAN 20 | Wireshark `arp` capture |
@@ -233,7 +237,7 @@ Course-provided project and Word files remain outside this public repository unl
 |---|---|
 | Repository structure | Complete |
 | Enterprise framing | Complete |
-| Topology validation | Topology screenshot captured; baseline behavior partially validated |
+| Topology validation | Topology and source configuration inspected; Staff baseline validated; Guest wireless VLAN mismatch identified |
 | Wireshark captures | Sanitized ARP screenshot captured; reproducible `.pcap` files pending |
 | Screenshots and video | Screenshots captured; walkthrough video pending |
 | Hardening expansion | Planned |
