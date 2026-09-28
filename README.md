@@ -176,7 +176,7 @@ Course-provided project and Word files remain outside this public repository unl
 |---|---|
 | Repository structure | Complete |
 | Enterprise framing | Complete |
-| Topology validation | Pending GNS3 execution |
-| Wireshark captures | Pending capture and sanitization |
-| Screenshots and video | Pending evidence collection |
+| Topology validation | Screenshot captured; configuration verification in progress |
+| Wireshark captures | Screenshot evidence captured; `.pcap` files pending |
+| Screenshots and video | Screenshots captured; walkthrough video pending |
 | Hardening expansion | Planned |
