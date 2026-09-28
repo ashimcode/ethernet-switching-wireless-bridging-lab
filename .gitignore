@@ -4,10 +4,9 @@
 *.docx
 *.doc
 
-# Packet captures and raw exports
-*.pcap
-*.pcapng
-*.cap
+# Raw packet captures and local exports
+pcaps/raw/
+evidence/packet-captures/raw/
 *.etl
 
 # Local GNS3 state
