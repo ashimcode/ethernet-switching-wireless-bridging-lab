@@ -64,6 +64,63 @@ The simulated environment uses two logical trust zones:
 - **Wireless-AP-Bridge:** Represents the Layer 2 bridge between a wireless access segment and the Ethernet LAN. GNS3 does not simulate radio propagation, interference, authentication, or client association in this topology.
 - **Absent Layer 3 gateway:** Demonstrates the boundary between switching and routing. A router, Layer 3 switch, or firewall would be required to permit controlled inter-VLAN communication.
 
+## Visual evidence gallery
+
+The following repository-owned captures document the topology, endpoint addressing, baseline connectivity tests, and packet-level observations. The gallery is intentionally limited to evidence relevant to this project; the complete evidence index remains in [`evidence/README.md`](evidence/README.md).
+
+All published images were reviewed for personal names, email addresses, local file paths, desktop and taskbar context, account identifiers, and location metadata. The remaining addresses are simulated RFC1918 lab values.
+
+### Topology and endpoint configuration
+
+<p align="center">
+  <img src="topology/gns3-topology.png" alt="GNS3 topology showing Staff and Guest endpoints connected through Main-Switch and Wireless-AP-Bridge" width="100%">
+</p>
+
+*Evidence shown: the four-endpoint topology, the Main-Switch, the simulated wireless bridge, and the annotated 802.1Q trunk path.*
+
+<table>
+  <tr>
+    <td width="50%"><img src="evidence/screenshots/staff-wireless-laptop-addressing.png" alt="VPCS output showing the Staff wireless laptop on the 192.168.10.0/24 subnet" width="100%"></td>
+    <td width="50%"><img src="evidence/screenshots/guest-pc-addressing.png" alt="VPCS output showing the Guest PC on the 192.168.20.0/24 subnet" width="100%"></td>
+  </tr>
+  <tr>
+    <td><b>Staff endpoint addressing</b><br>VLAN 10 uses the simulated 192.168.10.0/24 subnet.</td>
+    <td><b>Guest endpoint addressing</b><br>VLAN 20 uses the simulated 192.168.20.0/24 subnet.</td>
+  </tr>
+</table>
+
+### Connectivity validation
+
+<table>
+  <tr>
+    <td width="50%"><img src="evidence/screenshots/staff-vlan10-icmp-success.png" alt="Successful ICMP test between Staff VLAN endpoints" width="100%"></td>
+    <td width="50%"><img src="evidence/screenshots/admin-cross-vlan-no-gateway.png" alt="VPCS output showing cross-VLAN tests failing because no gateway is configured" width="100%"></td>
+  </tr>
+  <tr>
+    <td><b>Same-VLAN reachability</b><br>Staff endpoint communication succeeds within VLAN 10.</td>
+    <td><b>Cross-VLAN boundary</b><br>Cross-VLAN attempts return <code>No gateway found</code> in the unrouted baseline topology.</td>
+  </tr>
+  <tr>
+    <td colspan="2"><img src="evidence/screenshots/guest-vlan20-initial-failure.png" alt="Initial Guest VLAN same-segment test showing an observed failure before troubleshooting" width="100%"></td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Investigation state</b><br>The initial Guest VLAN same-segment failure is preserved as troubleshooting evidence. It is not presented as proof that the Guest path is complete; the root-cause analysis and retest remain open.</td>
+  </tr>
+</table>
+
+### Packet analysis
+
+<table>
+  <tr>
+    <td width="50%"><img src="evidence/screenshots/wireshark-arp-broadcast.png" alt="Wireshark display filtered to ARP broadcasts in the simulated lab" width="100%"></td>
+    <td width="50%"><img src="evidence/screenshots/wireshark-arp-and-icmpv6.png" alt="Wireshark capture showing ARP traffic and ICMPv6 router solicitation frames" width="100%"></td>
+  </tr>
+  <tr>
+    <td><b>ARP broadcast observation</b><br>ARP requests are visible as broadcasts for the simulated VLAN endpoint addresses.</td>
+    <td><b>Supplemental protocol view</b><br>This capture also contains ICMPv6 router solicitation traffic; it is included as supplemental packet evidence, not as IPv4 ICMP proof.</td>
+  </tr>
+</table>
+
 ## Security control analysis through the OSI model
 
 ### Layer 1 Physical
