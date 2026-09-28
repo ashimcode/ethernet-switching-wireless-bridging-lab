@@ -226,6 +226,7 @@ The final portfolio package should include:
 - endpoint test results for same-VLAN and cross-VLAN communication;
 - before-and-after evidence for the intentional VLAN error;
 - a troubleshooting log explaining the root cause;
+- a concise [interview walkthrough](docs/interview-walkthrough.md) and [LinkedIn project brief](docs/linkedin-brief.md);
 - a short technical walkthrough video;
 - a final report written in clear engineering language.
 
