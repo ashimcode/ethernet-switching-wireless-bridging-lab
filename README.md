@@ -176,7 +176,19 @@ Course-provided project and Word files remain outside this public repository unl
 |---|---|
 | Repository structure | Complete |
 | Enterprise framing | Complete |
-| Topology validation | Screenshot captured; configuration verification in progress |
-| Wireshark captures | Screenshot evidence captured; `.pcap` files pending |
+| Topology validation | Topology screenshot captured; baseline behavior partially validated |
+| Wireshark captures | Sanitized ARP screenshot captured; reproducible `.pcap` files pending |
 | Screenshots and video | Screenshots captured; walkthrough video pending |
 | Hardening expansion | Planned |
+
+### Evidence status
+
+The current evidence package supports these bounded claims:
+
+- the four-endpoint topology and 802.1Q trunk are documented in `topology/gns3-topology.png`;
+- an Admin-PC to Staff-VLAN endpoint ICMP test succeeds;
+- Admin-PC attempts toward Guest-VLAN addresses fail with `No gateway found`, consistent with the intentionally unrouted VLAN boundary;
+- an initial Guest-VLAN same-segment failure is captured and remains under investigation;
+- Wireshark shows ARP broadcasts for the observed `192.168.10.20` and `192.168.20.20` addresses.
+
+The repository does not yet claim a completed guest-path fix, a finalized switch-configuration audit, or a reproducible packet-capture file. Those are the next validation gates.

@@ -3,10 +3,10 @@
 | Evidence item | Validation question | Repository location | Status |
 |---|---|---|---|
 | Topology screenshot | Are the endpoints, switch, bridge, and links visible? | `topology/gns3-topology.png` | Captured |
-| VLAN configuration screenshot | Are VLAN 10 and VLAN 20 assigned as designed? | `evidence/screenshots/` | Pending |
+| VLAN configuration screenshot | Are VLAN 10 and VLAN 20 assigned as designed? | `evidence/screenshots/` | Pending; switch configuration capture required |
 | Staff ARP observation | Does the broadcast remain inside VLAN 10? | `evidence/screenshots/wireshark-arp-broadcast.png` | Screenshot captured |
 | Guest ARP observation | Does the broadcast remain inside VLAN 20? | `evidence/screenshots/wireshark-arp-broadcast.png` | Screenshot captured |
-| Same-VLAN ICMP test | Does local communication succeed? | `evidence/screenshots/staff-vlan10-icmp-success.png` | Screenshot captured |
+| Same-VLAN ICMP test | Does local communication succeed? | `evidence/screenshots/staff-vlan10-icmp-success.png` | Admin/Staff path captured as successful |
 | Cross-VLAN test | Does communication fail without routing? | `evidence/screenshots/admin-cross-vlan-no-gateway.png` | Screenshot captured |
-| VLAN error evidence | Can the misconfiguration be isolated and corrected? | `evidence/screenshots/guest-vlan20-initial-failure.png` | Initial state captured; root cause pending |
+| VLAN error evidence | Can the misconfiguration be isolated and corrected? | `evidence/screenshots/guest-vlan20-initial-failure.png` | Initial failure captured; root cause and correction pending |
 | Walkthrough video | Can another analyst reproduce the validation? | `evidence/video/` | Pending |
