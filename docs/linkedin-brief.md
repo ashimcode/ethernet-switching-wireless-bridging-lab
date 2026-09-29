@@ -28,7 +28,7 @@ The lesson: an IP address can look correct while the switch-port membership quie
 
 Repository: https://github.com/ashimcode/ethernet-switching-wireless-bridging-lab
 
-Next step: add packet-level evidence and a controlled firewall boundary so the segmentation policy can be tested beyond the Layer 2 baseline.
+Next step: add a controlled firewall boundary and walkthrough video so the segmentation policy can be tested and demonstrated beyond the Layer 2 baseline.
 
 Suggested tags: `#Cybersecurity` `#Networking` `#IncidentResponse` `#GNS3` `#BlueTeam`
 
@@ -40,7 +40,7 @@ The most valuable result was not the first successful ping. It was finding a con
 
 I documented the root cause, the minimal correction, the runtime validation, and the production hardening controls I would add next.
 
-The repository records the runtime result in a sanitized validation note; a packet capture or before/after configuration image can be added as a follow-up evidence layer.
+The repository records the runtime result in a sanitized validation note and includes a packet capture from the corrected 802.1Q trunk. A before/after configuration image and walkthrough video remain optional follow-up evidence layers.
 
 Repository: https://github.com/ashimcode/ethernet-switching-wireless-bridging-lab
 

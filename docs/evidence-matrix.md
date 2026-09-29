@@ -10,4 +10,5 @@
 | Cross-VLAN test | Does communication fail without routing? | `evidence/screenshots/admin-cross-vlan-no-gateway.png` | Screenshot captured |
 | VLAN error evidence | Can the misconfiguration be isolated and corrected? | `evidence/screenshots/guest-vlan20-initial-failure.png`, `docs/guest-vlan-root-cause.md`, `docs/runtime-validation.md` | Root cause isolated; correction reproduced in a disposable copy; five-reply Guest validation recorded |
 | MAC-learning validation | Did the switch learn the four endpoints in the intended VLANs? | `docs/runtime-validation.md` | Recorded; VLAN 10 and VLAN 20 endpoint MACs observed in the Main-Switch table |
+| Trunk packet capture | Are VLAN 10 and VLAN 20 tags present on the bridge trunk during same-VLAN validation? | `pcaps/vlan-trunk-runtime-2026-09-28.pcap`, `docs/runtime-validation.md` | Captured; 24 tagged frames across VLANs 10 and 20, including 20 IPv4/ICMP frames |
 | Walkthrough video | Can another analyst reproduce the validation? | `evidence/video/` | Pending |

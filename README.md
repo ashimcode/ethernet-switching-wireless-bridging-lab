@@ -240,7 +240,7 @@ Course-provided project and Word files remain outside this public repository unl
 | Repository structure | Complete |
 | Enterprise framing | Complete |
 | Topology validation | Corrected Guest bridge port validated in a disposable copy; Staff baseline and expected no-routing boundary rechecked |
-| Wireshark captures | Sanitized ARP screenshot captured; reproducible `.pcap` files pending |
+| Wireshark captures | Sanitized ARP screenshots and reproducible trunk `.pcap` captured |
 | Screenshots and video | Screenshots captured; walkthrough video pending |
 | Hardening expansion | Planned |
 
@@ -253,6 +253,7 @@ The current evidence package supports these bounded claims:
 - Admin-PC attempts toward Guest-VLAN addresses fail with `No gateway found`, consistent with the intentionally unrouted VLAN boundary;
 - the original Guest-VLAN same-segment failure is captured, its Layer 2 root cause is documented, and the corrected disposable-copy path now passes in both directions;
 - the corrected runtime result includes five-reply same-VLAN tests for Guest and Staff endpoints and MAC-learning evidence for VLAN 10 and VLAN 20;
-- Wireshark shows ARP broadcasts for the observed `192.168.10.20` and `192.168.20.20` addresses.
+- Wireshark shows ARP broadcasts for the observed `192.168.10.20` and `192.168.20.20` addresses;
+- the sanitized trunk capture records 802.1Q tags for VLAN 10 and VLAN 20 during the corrected same-VLAN tests.
 
-The repository does not yet claim a production network deployment, inter-VLAN routing, or a reproducible packet-capture file. Those remain future hardening and evidence gates.
+The repository does not yet claim a production network deployment, inter-VLAN routing, or a walkthrough video. Those remain future hardening and evidence gates.
